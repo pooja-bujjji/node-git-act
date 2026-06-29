@@ -16,7 +16,7 @@ jobs:
           node-version: '24'
 
       - name: start app
-        run: npm start 
+        run: npm start &
 
       - name: check if app is running
         run: |
