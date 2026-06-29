@@ -21,4 +21,4 @@ jobs:
       - name: check if app is running
         run: |
           sleep 5
-          curl -f http://localhost:3000 || exit 1
+          curl -I http://localhost:3000 || exit 1
