@@ -15,6 +15,9 @@ jobs:
         with:
           node-version: '24'
 
+      - name: install dependencies
+        run: npm ci
+
       - name: start app
         run: npm start &
 
