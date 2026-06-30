@@ -25,5 +25,5 @@ jobs:
     steps:
       - name: Set environment variables
         run: |
-          echo "LOG_LEVEL: {{ github.event.inputs.logLevel }}" 
-          echo "APP_VERSION: {{ github.event.inputs.version }}" 
+          echo "LOG_LEVEL: ${{ github.event.inputs.logLevel }}" 
+          echo "APP_VERSION: ${{ github.event.inputs.version }}" 
