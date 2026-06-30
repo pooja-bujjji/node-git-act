@@ -1,0 +1,29 @@
+name: variables
+
+on:
+  workflow_dispatch:
+     inputs:
+        logLevel:
+          description: 'run environment'
+          required: true
+          default: 'test'
+          type: choice
+          options:
+          - test
+          - staging
+          - production
+
+        version:
+          description: 'version of the app'
+          required: true
+          default: 'v1.0.0'
+          type: string
+
+jobs:
+  set-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment variables
+        run: |
+          echo "LOG_LEVEL: {{ github.event.inputs.logLevel }}" 
+          echo "APP_VERSION: {{ github.event.inputs.version }}" 
