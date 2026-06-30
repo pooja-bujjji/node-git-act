@@ -1,0 +1,40 @@
+name: sel job
+on:
+  workflow_dispatch:
+    inputs:
+      select_job_name:
+        description: 'Select a job to run'
+        required: true
+        default: 'test'
+        type: choice
+        options:
+          - test
+          - matrix-build
+          - variables
+          - all
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.select_job_name == 'test' || inputs.select_job_name == 'all' }}
+    steps:
+      - name: job1
+        echo "This is job1"
+    
+    
+
+  matrix-build:
+    if: ${{ inputs.select_job_name == 'matrix-build' || inputs.select_job_name == 'all' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: job1
+        echo "This is job1"
+    
+
+  variables:
+    if: ${{ inputs.select_job_name == 'variables' || inputs.select_job_name == 'all' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: job1
+        echo "This is job1"
+    
